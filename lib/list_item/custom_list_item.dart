@@ -22,27 +22,20 @@ class _CustomListItemState extends State<CustomListItem> {
   Widget build(BuildContext context) {
     final listWidget = data
         .map((e) => CustomPaint(
-              painter: CustomListItemPainter(e==data.first, e == data.last),
+              painter: CustomListItemPainter(e == data.first, e == data.last),
               child: Container(
                 margin: const EdgeInsets.only(left: 50, top: 4),
                 width: double.infinity,
-                // child: Column(
-                //   children: listWidget,
-                // )
-                child: ItemSample(
-                  data: e,
-                ),
+                child: ItemSample(data: e),
               ),
             ))
         .toList();
     return Container(
         margin: const EdgeInsets.only(top: 30),
-        padding: EdgeInsets.symmetric(horizontal: 18),
+        padding: const EdgeInsets.symmetric(horizontal: 18),
         color: Colors.white,
         // width: double.infinity,
-        child: Column(
-          children: listWidget,
-        ));
+        child: Column(children: listWidget));
   }
 }
 
@@ -63,7 +56,7 @@ class ItemSample extends StatelessWidget {
           Row(
             children: const [
               Expanded(child: Text('P.101', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500))),
-              Text('500,000',style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600))
+              Text('500,000', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600))
             ],
           ),
           const SizedBox(height: 4),

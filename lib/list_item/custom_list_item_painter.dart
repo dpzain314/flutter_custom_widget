@@ -19,10 +19,14 @@ class CustomListItemPainter extends CustomPainter {
     final path = Path();
     if (isFirst) path.lineTo(size.width, 0);
     path.moveTo(dx, 0);
+
     path.lineTo(dx, dy);
     drawHorizontalLine(dx, dy, path);
-    path.moveTo(dx, dy);
-    if (!isLast) path.lineTo(dx, size.height);
+
+    if (!isLast) {
+      path.moveTo(dx, dy);
+      path.lineTo(dx, size.height);
+    }
     canvas.drawPath(path, paint);
   }
 
